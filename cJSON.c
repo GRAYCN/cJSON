@@ -43,8 +43,8 @@ static int cJSON_strcasecmp(const char *s1,const char *s2)
 	return tolower(*(const unsigned char *)s1) - tolower(*(const unsigned char *)s2);
 }
 
-static void *(*cJSON_malloc)(size_t sz) = malloc;
-static void (*cJSON_free)(void *ptr) = free;
+static void *(*cJSON_malloc)(size_t sz) = malloc;       // ##这是啥意思？
+static void (*cJSON_free)(void *ptr) = free;    //## static在什么情况下使用？
 
 static char* cJSON_strdup(const char* str)
 {
@@ -732,6 +732,7 @@ cJSON *cJSON_Duplicate(cJSON *item,int recurse)
 	return newitem;
 }
 
+/*## 缩小？*/
 void cJSON_Minify(char *json)
 {
 	char *into=json;
